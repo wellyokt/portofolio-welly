@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Welly Oktariana</title>
+  <meta name="description" content="Personal portfolio: projects, skills, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;          /* slate-900 */
+      --panel: #111827;       /* gray-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --brand: #22d3ee;       /* cyan-400 */
+      --brand-2: #a78bfa;     /* violet-400 */
+      --ring: rgba(34, 211, 238, .45);
+      --card: #0b1220;
+      --border: #1f2937;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .6);
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;          /* slate-50 */
+      --panel: #ffffff;
+      --muted: #475569;       /* slate-600 */
+      --text: #0f172a;        /* slate-900 */
+      --brand: #0891b2;       /* cyan-700 */
+      --brand-2: #6d28d9;     /* violet-700 */
+      --ring: rgba(8, 145, 178, .25);
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      background: radial-gradient(1200px 800px at 10% 0%, rgba(34,211,238,.08), transparent 60%),
+                  radial-gradient(1000px 700px at 90% 10%, rgba(167,139,250,.08), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1100px, 92vw); margin-inline: auto; }
+
+    /* Header */
+    .skip { position: absolute; left: -9999px; top: auto; }
+    .skip:focus { left: 1rem; top: 1rem; background: var(--panel); color: var(--text); padding: .5rem .75rem; border-radius: .5rem; outline: 2px solid var(--brand); }
+
+    header {
+      position: sticky; top: 0; z-index: 40; backdrop-filter: saturate(180%) blur(12px);
+      background: color-mix(in srgb, var(--bg), transparent 40%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 0; }
+    .brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: .3px; }
+    .brand-badge { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display: grid; place-items: center; color: #0b1220; font-weight: 900; box-shadow: var(--shadow); }
+    .nav a { font-weight: 500; color: var(--muted); }
+    .nav a:hover { color: var(--text); }
+    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .cta { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: .8rem; color: var(--text); }
+    .cta:hover { border-color: color-mix(in srgb, var(--brand), var(--border)); box-shadow: 0 0 0 3px var(--ring); }
+    .icon-btn { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: .8rem; border: 1px solid var(--border); background: var(--panel); }
+    .icon-btn:hover { box-shadow: 0 0 0 3px var(--ring); }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; align-items: center; padding: 3.5rem 0 2rem; }
+    .kicker { color: var(--brand); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+    .title { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.1; margin: .5rem 0 1rem; font-weight: 800; }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+    .hero-cta { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1rem; border-radius: .9rem; border: 1px solid var(--border); background: var(--panel); color: var(--text); font-weight: 600; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1220; border: none; }
+    .btn:hover { box-shadow: 0 0 0 3px var(--ring); }
+    .portrait { aspect-ratio: 1/1; border-radius: 1.2rem; overflow: hidden; border: 1px solid var(--border); background: radial-gradient(circle at 60% 30%, rgba(34,211,238,.18), transparent 40%), var(--card); }
+    .portrait .shape { width: 100%; height: 100%; background:
+      radial-gradient(160px 120px at 30% 30%, rgba(34,211,238,.25), transparent 60%),
+      radial-gradient(180px 140px at 70% 60%, rgba(167,139,250,.22), transparent 60%),
+      linear-gradient(180deg, color-mix(in srgb, var(--panel), transparent 20%), var(--panel)); }
+
+    /* Sections */
+    section { padding: 2.5rem 0; }
+    .section-title { font-size: 1.6rem; font-weight: 800; margin-bottom: .75rem; }
+    .section-sub { color: var(--muted); margin-bottom: 1.5rem; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
+    .chip { border: 1px solid var(--border); padding: .6rem .8rem; border-radius: .8rem; background: var(--panel); font-weight: 600; text-align: center; }
+
+    /* Projects */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    .card { grid-column: span 12; border: 1px solid var(--border); border-radius: 1.1rem; overflow: hidden; background: var(--card); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .card figure { aspect-ratio: 16/9; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display: grid; place-items: center; color: #0b1220; font-weight: 900; }
+    .card .content { padding: 1rem; display: grid; gap: .6rem; }
+    .tagrow { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag { font-size: .8rem; padding: .3rem .6rem; border-radius: .6rem; border: 1px dashed var(--border); color: var(--muted); }
+    .card a.more { margin-top: .2rem; font-weight: 700; color: var(--brand); }
+    .project-img {
+    width: 30px;
+    height: 60px;
+    object-fit: cover; /* biar gambar tetap proporsional, ga melar aneh */
+  }
+
+    /* Timeline */
+    .timeline { border-left: 2px dashed var(--border); padding-left: 1rem; display: grid; gap: 1.25rem; }
+    .tl-item { position: relative; }
+    .tl-item::before { content: ""; position: absolute; left: -1.2rem; top: .2rem; width: .7rem; height: .7rem; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring), transparent 65%); }
+    .tl-role { font-weight: 700; }
+    .tl-meta { color: var(--muted); font-size: .95rem; }
+
+    /* Contact */
+    form { display: grid; gap: .8rem; }
+    input, textarea { width: 100%; padding: .8rem .9rem; border-radius: .8rem; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 3px var(--ring); border-color: color-mix(in srgb, var(--brand), var(--border)); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .card { grid-column: span 12; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .nav .mobile { display: flex; gap: .6rem; }
+    }
+    @media (min-width: 921px){ .nav .mobile { display: none; } }
+
+    /* Print (A4 friendly) */
+    @media print {
+      header, .hero-cta .btn[href^="#"], .icon-btn { display: none !important; }
+      body { background: #fff; color: #000; }
+      .card, .chip, input, textarea { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
+      <div class="nav-links" role="menubar">
+        <a role="menuitem" href="#about">About</a>
+        <a role="menuitem" href="#skills">Skills</a>
+        <a role="menuitem" href="#projects">Projects</a>
+        <a role="menuitem" href="#experience">Experience</a>
+        <a role="menuitem" href="#contact">Contact</a>
+        <a class="cta" href="#" download>Download CV</a>
+      </div>
+      <div class="mobile">
+        <button class="icon-btn" id="menuBtn" aria-expanded="false" aria-controls="mobMenu">☰</button>
+        <button class="icon-btn" id="themeToggleSm" aria-label="Toggle theme">🌗</button>
+      </div>
+    </nav>
+    <div id="mobMenu" class="container" hidden>
+      <div style="display:grid; gap:.6rem; padding:0 0 1rem;">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#" download>Download CV</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div>
+        <h3 class="title">Hi, I'm <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Welly Oktariana</span> —
+          <br>Data Analyst</h3>
+        <p class="lead">Data Analyst with 2+ year of experience in building machine learning models, performing spatial analysis, and leveraging data visualization techniques to deliver actionable insights that support strategic decision-making and drive business outcomes. Strong interest in data processing and analysis, with hands-on experience working with both large-scale and small datasets across various contexts. Adept at combining spatial and non-spatial data to uncover patterns, identify trends, and translate complex information into clear business recommendations.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+        <div style="margin-top:1rem; color:var(--muted); font-size:.95rem;">📍 South Tangerang • Open to remote</div>
+      </div>
+      <div class="portrait" aria-hidden="true">
+        <img src="C:\Users\techb\OneDrive\Pictures\IMG_0236.png" alt="My Photo" class="profile-photo">
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="section-title">Skills</h2>
+      <p class="section-sub">Technical Skills</p>
+      <div class="skills">
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Streamlit & HTML</span>
+        <span class="chip">Machine Learning</span>
+        <span class="chip">OCR</span>
+        <span class="chip">CNN</span>
+        <span class="chip">GIT</span>
+        <span class="chip">Databricks</span>
+
+
+      </div>
+      <p class="section-sub">Analytical Skill</p>
+      <div class="skills">
+        <span class="chip">Data Cleaning</span>
+        <span class="chip">Data Exploration</span>
+        <span class="chip">Feature Engineering</span>
+        <span class="chip">Spatial Analysis</span>
+        <span class="chip">Statistical Analysis</span>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="section-title">Projects</h2>
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card" aria-labelledby="p1-title">
+          <div class="content">
+            <h3 id="p1-title">POI QA Automation</h3>
+            <p>
+              Developed a <strong>POI QA Automation module</strong> with multi-layer filters 
+              (subclass validation, duplicate detection, built-up area, road & building proximity, 
+              reviews, common names, latest comments, and ratings). 
+              Integrated <strong>LLM (Gemini)</strong> for semantic checks, an 
+              <strong>F1-similarity model</strong> for text matching, and a 
+              <strong>spatial database</strong> for geospatial validation. 
+              This pipeline improved POI data accuracy and significantly reduced manual QA effort.
+            </p>
+            <div class="tagrow">
+              <span class="tag">Python</span>
+              <span class="tag">LLM</span>
+              <span class="tag">SQL</span>
+              <span class="tag">OOP</span>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="card" aria-labelledby="p2-title">
+          <figure>
+            <iframe src="C:\Users\techb\OneDrive\Documents\Welly Oktariana\berkas\data_porto\map_project2.html" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:10px;" 
+                    loading="lazy"></iframe>
+          </figure>
+          <div class="content">
+            <h3 id="p2-title">Market Potential Analysis </h3>
+            <p> In this project, I conducted a Whitespace Analysis by comparing a client’s existing grocery store POIs with a broader POI universe. The goal was to identify untapped opportunities by performing data matching based on location and attributes, then classifying stores into Potential Channel, Existing & Matched, and Existing & Unmatched. This provided clear insights into expansion opportunities as well as areas requiring data quality validation. </p>
+            <p> Next, I carried out a Grid Analysis by dividing the target area into spatial grids using H3 geohash level 8. Each grid was evaluated based on the number of POIs, consumer expenditure, and people traffic, which were then converted into scores. The scoring framework categorized grids into five levels of attractiveness, effectively distinguishing between Acceptable and Unacceptable areas for strategic placement. </p>
+            <p> Finally, I performed a Market Potential Analysis to estimate store-level opportunities within a 250-meter walking catchment area. Telco mobility data was used to measure active devices as a proxy for population or households, which was then multiplied by average food expenditure. This approach generated a market size estimation for each store and classified them as Potential or Not Potential, providing a quantitative basis for expansion and investment decisions. </p>
+            <div class="tagrow">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">HTML&CSS</span>
+              <span class="tag">Grid Analysis</span>
+              <span class="tag">Whitespace Analysis</span>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="card" aria-labelledby="p3-title">
+          <figure>
+          <iframe src="C:\Users\techb\OneDrive\Documents\Welly Oktariana\berkas\data_porto\map_poi_index.html" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:10px;" 
+                    loading="lazy"></iframe>
+          </figure>
+          <div class="content">
+            <h3 id="p3-title">POI Index Growth Analysis</h3>
+            <p>I measured POI density at two time points (June 2024 and December 2025) by aggregating all POIs into H3 hexagonal grids at resolution 8 (~500 m). For each hexagon, POI counts were calculated and normalized into a POI Index to allow fair comparison across areas. Growth was measured as both absolute and percentage change between the two periods. The results were visualized through heatmaps/choropleth maps and change distribution charts.</p>
+            <p>The analysis highlighted high-growth hex clusters (micro-level expansion opportunities) as well as declining hexes (potential areas of reduced activity). Deliverables included 500 m–level change maps, top/bottom hex tables with percentage shifts, and recommendations for priority zones in market expansion or field validation. The index framework is scalable and can be reused for continuous monitoring.</p>
+            <div class="tagrow">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Geospatial Analysis</span>
+            </div>
+          </div>
+        </article>
+        <!-- Card 4 -->
+        <article class="card" aria-labelledby="p4-title">
+            <img src="C:\Users\techb\OneDrive\Documents\Welly Oktariana\berkas\data_porto\Screenshot 2025-09-15 165054.png" 
+                alt="Project 3 Preview" 
+                width="100%" 
+                height="auto" 
+                loading="lazy">
+          <div class="content">
+            <h3 id="p4-title">House Price Prediction Using Deep Learning</h3>
+            <section class="project">
+            <p>
+              This project aimed to predict property prices in Surabaya by combining structured transaction data with unstructured satellite images. 
+              The dataset included  1,842 records remained. Satellite images were cropped around each property location, resized to 224×224 pixels, and normalized for modeling. A hybrid approach was implemented by extracting high-level visual features from satellite images using VGG16 and merging them with structured 
+              features scaled via MinMaxScaler. Data was split into 80% training and 20% validation. The model demonstrated that combining tabular attributes 
+              with spatial image features improved predictive accuracy, capturing hidden value factors such as vegetation, building textures, and road accessibility.
+            </p>
+          </section>
+          <div class="tagrow">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Print CSS</span>
+              <span class="tag">Automation</span>
+            </div>
+            <a class="more" href="#" target="_blank" rel="noopener">Preview →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact</h2>
+      <p class="section-sub">Have a project or collaboration idea? Send a message below or email me directly.</p>
+      <form onsubmit="return sendEmail(event)">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.8rem;">
+          <input aria-label="Name" type="text" name="name" placeholder="Name" required>
+          <input aria-label="Email" type="email" name="email" placeholder="Email" required>
+        </div>
+        <input aria-label="Subject" type="text" name="subject" placeholder="Subject" required>
+        <textarea aria-label="Message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        <button class="btn primary" type="submit">Send</button>
+        <a class="btn" href="mailto:you@example.com">Email Me</a>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Welly Oktariana. All rights reserved.</div>
+      <div style="display:flex; gap:.6rem;">
+        <a class="icon-btn" href="#" aria-label="GitHub">GH</a>
+        <a class="icon-btn" href="#" aria-label="LinkedIn">in</a>
+        <a class="icon-btn" href="#" aria-label="X/Twitter">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme (light/dark) with localStorage
+    const root = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    if (stored) root.setAttribute('data-theme', stored);
+    const toggleTheme = () => {
+      const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+    };
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleSm').addEventListener('click', toggleTheme);
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobMenu = document.getElementById('mobMenu');
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobMenu.hidden = expanded;
+    });
+
+    // Mailto sender
+    function sendEmail(e){
+      e.preventDefault();
+      const f = e.target;
+      const name = encodeURIComponent(f.name.value);
+      const email = encodeURIComponent(f.email.value);
+      const subject = encodeURIComponent(f.subject.value);
+      const body = encodeURIComponent(`Hello, I'm ${name} (${email}).
+
+${f.message.value}`);
+      window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
