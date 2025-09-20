@@ -10,29 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f172a;          /* slate-900 */
-      --panel: #111827;       /* gray-900 */
-      --muted: #94a3b8;       /* slate-400 */
-      --text: #e5e7eb;        /* gray-200 */
-      --brand: #22d3ee;       /* cyan-400 */
-      --brand-2: #a78bfa;     /* violet-400 */
-      --ring: rgba(34, 211, 238, .45);
-      --card: #0b1220;
-      --border: #1f2937;
-      --shadow: 0 10px 30px rgba(2, 6, 23, .6);
-    }
-    [data-theme="light"] {
-      --bg: #f8fafc;          /* slate-50 */
-      --panel: #ffffff;
-      --muted: #475569;       /* slate-600 */
-      --text: #0f172a;        /* slate-900 */
-      --brand: #0891b2;       /* cyan-700 */
-      --brand-2: #6d28d9;     /* violet-700 */
-      --ring: rgba(8, 145, 178, .25);
-      --card: #ffffff;
-      --border: #e2e8f0;
-      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
-    }
+  --bg: #f8fafc;          /* slate-50 → background putih terang */
+  --panel: #ffffff;       /* panel putih */
+  --muted: #475569;       /* teks abu abu */
+  --text: #0f172a;        /* teks utama gelap */
+  --brand: #0891b2;       /* cyan (aksen) */
+  --brand-2: #6d28d9;     /* violet (aksen 2) */
+  --ring: rgba(8, 145, 178, .25);
+  --card: #ffffff;
+  --border: #e2e8f0;      /* abu abu terang */
+  --shadow: 0 8px 20px rgba(2, 6, 23, .08); /* bayangan soft */
+}
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -96,7 +84,7 @@
     .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
     .card { grid-column: span 12; border: 1px solid var(--border); border-radius: 1.1rem; overflow: hidden; background: var(--card); box-shadow: var(--shadow); display: flex; flex-direction: column; }
     .card figure { aspect-ratio: 16/9; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display: grid; place-items: center; color: #0b1220; font-weight: 900; }
-    .card .content { padding: 1rem; display: grid; gap: .6rem; }
+    .card .content { padding: 1rem; display: grid; gap: .2rem; }
     .tagrow { display: flex; flex-wrap: wrap; gap: .5rem; }
     .tag { font-size: .8rem; padding: .3rem .6rem; border-radius: .6rem; border: 1px dashed var(--border); color: var(--muted); }
     .card a.more { margin-top: .2rem; font-weight: 700; color: var(--brand); }
@@ -147,10 +135,9 @@
         <a role="menuitem" href="#about">About</a>
         <a role="menuitem" href="#skills">Skills</a>
         <a role="menuitem" href="#projects">Projects</a>
-        <a role="menuitem" href="#experience">Experience</a>
         <a role="menuitem" href="#contact">Contact</a>
-        <a class="cta" href="#" download>Download CV</a>
       </div>
+        <a class="cta" href="assets/CV Welly Oktariana.pdf" download="CV Welly Oktariana.pdf">Download CV</a>
       <div class="mobile">
         <button class="icon-btn" id="menuBtn" aria-expanded="false" aria-controls="mobMenu">☰</button>
         <button class="icon-btn" id="themeToggleSm" aria-label="Toggle theme">🌗</button>
@@ -161,7 +148,6 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
         <a class="cta" href="#" download>Download CV</a>
       </div>
@@ -182,7 +168,7 @@
         <div style="margin-top:1rem; color:var(--muted); font-size:.95rem;">📍 South Tangerang • Open to remote</div>
       </div>
       <div class="portrait" aria-hidden="true">
-        <img src="C:\Users\techb\OneDrive\Pictures\IMG_0236.png" alt="My Photo" class="profile-photo">
+        <img src="assets/IMG_0236.png" alt="My Photo" class="profile-photo">
       </div>
     </section>
 
@@ -195,8 +181,6 @@
         <span class="chip">SQL</span>
         <span class="chip">Streamlit & HTML</span>
         <span class="chip">Machine Learning</span>
-        <span class="chip">OCR</span>
-        <span class="chip">CNN</span>
         <span class="chip">GIT</span>
         <span class="chip">Databricks</span>
 
@@ -206,28 +190,179 @@
       <div class="skills">
         <span class="chip">Data Cleaning</span>
         <span class="chip">Data Exploration</span>
+        <span class="chip">Data Processing</span>
         <span class="chip">Feature Engineering</span>
+        <span class="chip"> Hyperparameter Tuning</span>
         <span class="chip">Spatial Analysis</span>
-        <span class="chip">Statistical Analysis</span>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title" class="section-title">Projects</h2>
       <div class="grid">
+           <!-- Card 1 -->
+        <article class="card" aria-labelledby="p1-title">
+          <div class="content">
+            <section style="font-size: 14px;">
+            <h3 id="p2-title">House Price Prediction</h3>
+            <p style ="font-weight: bold;">Objective</p>
+            <p>
+              Developed a regression-based model to forecast residential property prices by incorporating factors such as location, property size, available amenities, SES data, and demographic data. </p>
+            <p style ="font-weight: bold;">Key Outcomes</p>
+            <ul>
+              <li>provide a model to predict house prices to assist appraisals in the banking industry.</li>
+            </ul>
+            <p style ="font-weight: bold;">Methods</p>
+            <p>Python, SQL, Regression Modeling, Feature Engineering, Hyperparameter Tuning</p>
+          </section>
+            <div class="tagrow">
+              <span class="tag">Python</span>
+              <span class="tag">LLM</span>
+              <span class="tag">SQL</span>
+              <span class="tag">OOP</span>
+            </div>
+          </div>
+        </article>
+
+      <article class="card" aria-labelledby="p6-title">
+        <div class="content">
+          <section style="font-size: 14px;">
+            <h3 id="p6-title">House Price Prediction Using Deep Learning</h3>
+            <p style="font-weight: bold;">Objective</p>
+            <p>
+              Developed a hybrid predictive model for property prices in Surabaya by combining structured transaction data with unstructured satellite images.
+            </p>
+            <p style="font-weight: bold;">Key Outcomes</p>
+            <ul>
+              <li>Improved predictive accuracy by integrating tabular and spatial features.</li>
+              <li>Captured hidden value factors such as vegetation, building textures, and road accessibility.</li>
+            </ul>
+            <p style="font-weight: bold;">Methods</p>
+            <p>Python,TensorFlow, VGG16 (CNN),OpenCV, MinMaxScaler</p>
+          </section>
+          <div class="tagrow">
+            <span class="tag">Python</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">VGG16</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" aria-labelledby="p2-title">
+      <div class="content">
+        <section style="font-size: 14px;">
+          <h3 id="p2-title">Telco Churn Analysis</h3>
+          <p style="font-weight: bold;">Objective</p>
+          <p>
+            Built a churn prediction model using customer data from a telecommunications company to identify high-risk customers and improve retention strategies.
+          </p>
+          <p style="font-weight: bold;">Key Outcomes</p>
+          <ul>
+            <li>Detected key behavioral factors driving churn.</li>
+            <li>Enabled proactive customer retention through predictive analytics.</li>
+          </ul>
+          <p style="font-weight: bold;">Methods</p>
+          <p>Python, Classification Models, Data Preprocessing, Feature Importance Analysis</p>
+        </section>
+        <div class="tagrow">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">Classification</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" aria-labelledby="p3-title">
+      <div class="content">
+        <section style="font-size: 14px;">
+          <h3 id="p3-title">Recommendation System</h3>
+          <p style="font-weight: bold;">Objective</p>
+          <p>
+            Implemented and compared recommendation algorithms to enhance personalization in user recommendations.
+          </p>
+          <p style="font-weight: bold;">Key Outcomes</p>
+          <ul>
+            <li>Improved recommendation accuracy using similarity optimization.</li>
+            <li>Compared cosine similarity with alternative similarity metrics.</li>
+          </ul>
+          <p style="font-weight: bold;">Methods</p>
+          <p>Python, Collaborative Filtering, Cosine Similarity, Similarity Metrics</p>
+        </section>
+        <div class="tagrow">
+          <span class="tag">Python</span>
+          <span class="tag">Recommendation</span>
+          <span class="tag">Cosine Similarity</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" aria-labelledby="p4-title">
+      <div class="content">
+        <section style="font-size: 14px;">
+          <h3 id="p4-title">OCR – Document Extraction</h3>
+          <p style="font-weight: bold;">Objective</p>
+          <p>
+            Designed an OCR pipeline to extract structured information from unstructured passport documents.
+          </p>
+          <p style="font-weight: bold;">Key Outcomes</p>
+          <ul>
+            <li>Automated data extraction from documents, reducing manual input.</li>
+            <li>Improved efficiency in handling unstructured text and images.</li>
+          </ul>
+          <p style="font-weight: bold;">Methods</p>
+          <p>Python, OpenCV, Tesseract OCR, Text Parsing, Image Preprocessing</p>
+        </section>
+        <div class="tagrow">
+          <span class="tag">Python</span>
+          <span class="tag">OCR</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">NLP</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" aria-labelledby="p5-title">
+      <div class="content">
+        <section style="font-size: 14px;">
+          <h3 id="p5-title">Clustering Flight Dataset with RFM</h3>
+          <p style="font-weight: bold;">Objective</p>
+          <p>
+            Segmented airline customer data using Recency, Frequency, and Monetary (RFM) analysis to identify different customer groups and support marketing strategy.
+          </p>
+          <p style="font-weight: bold;">Key Outcomes</p>
+          <ul>
+            <li>Discovered distinct customer segments for loyalty program design.</li>
+            <li>Enabled data-driven customer retention and targeted campaigns.</li>
+          </ul>
+          <p style="font-weight: bold;">Methods</p>
+          <p>Python, RFM Analysis, K-Means Clustering, Data Standardization</p>
+        </section>
+        <div class="tagrow">
+          <span class="tag">Python</span>
+          <span class="tag">Clustering</span>
+          <span class="tag">RFM</span>
+          <span class="tag">EDA</span>
+        </div>
+      </div>
+    </article>
         <!-- Card 1 -->
         <article class="card" aria-labelledby="p1-title">
           <div class="content">
-            <h3 id="p1-title">POI QA Automation</h3>
+            <section style="font-size: 14px;">
+            <h3 id="p2-title">POI QA Automation Module</h3>
+            <p style ="font-weight: bold;">Objective</p>
             <p>
-              Developed a <strong>POI QA Automation module</strong> with multi-layer filters 
-              (subclass validation, duplicate detection, built-up area, road & building proximity, 
-              reviews, common names, latest comments, and ratings). 
-              Integrated <strong>LLM (Gemini)</strong> for semantic checks, an 
-              <strong>F1-similarity model</strong> for text matching, and a 
-              <strong>spatial database</strong> for geospatial validation. 
-              This pipeline improved POI data accuracy and significantly reduced manual QA effort.
-            </p>
+              Developed an automated QA module to enhance Point-of-Interest (POI) data accuracy through multi-layer validation, including duplicate detection, location consistency, reviews, common names, and ratings checks </p>
+            <p style ="font-weight: bold;">Key Outcomes</p>
+            <ul>
+              <li>Minimized manual QA effort by automating processing validation tasks.</li>
+              <li>Assigned confidence values to POI entries, allowing data to be filtered without reducing the total number of POIs.</li>
+            </ul>
+            <p style ="font-weight: bold;">Methods</p>
+            <p>Scoring, Semantic Checks (LLM-based), Text Matching, Geospatial Analysis</p>
+          </section>
             <div class="tagrow">
               <span class="tag">Python</span>
               <span class="tag">LLM</span>
@@ -239,18 +374,29 @@
         <!-- Card 2 -->
         <article class="card" aria-labelledby="p2-title">
           <figure>
-            <iframe src="C:\Users\techb\OneDrive\Documents\Welly Oktariana\berkas\data_porto\map_project2.html" 
+            <iframe src="assets\map_project2.html" 
                     width="100%" 
                     height="100%" 
                     style="border:10px;" 
                     loading="lazy"></iframe>
           </figure>
           <div class="content">
+            <section style="font-size: 14px;">
             <h3 id="p2-title">Market Potential Analysis </h3>
-            <p> In this project, I conducted a Whitespace Analysis by comparing a client’s existing grocery store POIs with a broader POI universe. The goal was to identify untapped opportunities by performing data matching based on location and attributes, then classifying stores into Potential Channel, Existing & Matched, and Existing & Unmatched. This provided clear insights into expansion opportunities as well as areas requiring data quality validation. </p>
-            <p> Next, I carried out a Grid Analysis by dividing the target area into spatial grids using H3 geohash level 8. Each grid was evaluated based on the number of POIs, consumer expenditure, and people traffic, which were then converted into scores. The scoring framework categorized grids into five levels of attractiveness, effectively distinguishing between Acceptable and Unacceptable areas for strategic placement. </p>
-            <p> Finally, I performed a Market Potential Analysis to estimate store-level opportunities within a 250-meter walking catchment area. Telco mobility data was used to measure active devices as a proxy for population or households, which was then multiplied by average food expenditure. This approach generated a market size estimation for each store and classified them as Potential or Not Potential, providing a quantitative basis for expansion and investment decisions. </p>
-            <div class="tagrow">
+            <p style ="font-weight: bold;">Objective</p>
+            <p>
+              The project aimed to identify growth opportunities by conducting <strong>Whitespace Analysis</strong> to uncover untapped grocery store potential, performing <strong>Grid Analysis</strong> to evaluate and prioritize attractive areas for strategic placement, and calculating <strong>Market Potential</strong> to estimate store-level opportunities and guide expansion and investment decisions.
+            </p>
+            <p style ="font-weight: bold;">Key Outcomes</p>
+            <ul>
+              <li>Identified high-potential areas for new store openings, supporting strategic decision-making.</li>
+              <li>Highlighted gaps in the existing store network, enabling targeted expansion efforts.</li>
+              <li>Provided quantitative estimates of market potential at the store level to inform investment prioritization.</li>
+            </ul>
+            <p style ="font-weight: bold;">Methods</p>
+            <p>Whitespace Analysis, Grid Analysis, Market Potential Estimation</p>
+          </section>
+          <div class="tagrow">
               <span class="tag">Python</span>
               <span class="tag">SQL</span>
               <span class="tag">HTML&CSS</span>
@@ -262,16 +408,34 @@
         <!-- Card 3 -->
         <article class="card" aria-labelledby="p3-title">
           <figure>
-          <iframe src="C:\Users\techb\OneDrive\Documents\Welly Oktariana\berkas\data_porto\map_poi_index.html" 
+          <iframe src="assets\map_poi_index.html" 
                     width="100%" 
                     height="100%" 
                     style="border:10px;" 
                     loading="lazy"></iframe>
           </figure>
           <div class="content">
-            <h3 id="p3-title">POI Index Growth Analysis</h3>
-            <p>I measured POI density at two time points (June 2024 and December 2025) by aggregating all POIs into H3 hexagonal grids at resolution 8 (~500 m). For each hexagon, POI counts were calculated and normalized into a POI Index to allow fair comparison across areas. Growth was measured as both absolute and percentage change between the two periods. The results were visualized through heatmaps/choropleth maps and change distribution charts.</p>
-            <p>The analysis highlighted high-growth hex clusters (micro-level expansion opportunities) as well as declining hexes (potential areas of reduced activity). Deliverables included 500 m–level change maps, top/bottom hex tables with percentage shifts, and recommendations for priority zones in market expansion or field validation. The index framework is scalable and can be reused for continuous monitoring.</p>
+            <section style="font-size: 14px;">
+              <h3 id="p3-title">POI Index Growth Analysis</h3>
+              
+              <p style="font-weight: bold;">Objective</p>
+              <p>
+                Analyzed Point-of-Interest (POI) density changes over time to identify high-growth and declining areas, supporting market expansion and field validation strategies.
+              </p>
+              
+              <p style="font-weight: bold;">Key Outcomes</p>
+              <ul>
+                <li>Identified micro-level expansion opportunities through high-growth hex clusters.</li>
+                <li>Highlighted declining areas for potential reduced activity monitoring.</li>
+                <li>Delivered 500 m–level change maps, top/bottom hex tables with percentage shifts, and actionable recommendations for priority zones.</li>
+                <li>Created a scalable POI Index framework for continuous monitoring and comparison across periods.</li>
+              </ul>
+              
+              <p style="font-weight: bold;">Methods</p>
+              <p>
+                Spatial Indexes
+              </p>
+            </section>
             <div class="tagrow">
               <span class="tag">Python</span>
               <span class="tag">SQL</span>
@@ -281,97 +445,36 @@
           </div>
         </article>
         <!-- Card 4 -->
-        <article class="card" aria-labelledby="p4-title">
-            <img src="C:\Users\techb\OneDrive\Documents\Welly Oktariana\berkas\data_porto\Screenshot 2025-09-15 165054.png" 
-                alt="Project 3 Preview" 
-                width="100%" 
-                height="auto" 
-                loading="lazy">
-          <div class="content">
-            <h3 id="p4-title">House Price Prediction Using Deep Learning</h3>
-            <section class="project">
-            <p>
-              This project aimed to predict property prices in Surabaya by combining structured transaction data with unstructured satellite images. 
-              The dataset included  1,842 records remained. Satellite images were cropped around each property location, resized to 224×224 pixels, and normalized for modeling. A hybrid approach was implemented by extracting high-level visual features from satellite images using VGG16 and merging them with structured 
-              features scaled via MinMaxScaler. Data was split into 80% training and 20% validation. The model demonstrated that combining tabular attributes 
-              with spatial image features improved predictive accuracy, capturing hidden value factors such as vegetation, building textures, and road accessibility.
-            </p>
-          </section>
-          <div class="tagrow">
-              <span class="tag">HTML/CSS</span>
-              <span class="tag">Print CSS</span>
-              <span class="tag">Automation</span>
-            </div>
-            <a class="more" href="#" target="_blank" rel="noopener">Preview →</a>
-          </div>
-        </article>
+
       </div>
     </section>
     <!-- CONTACT -->
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title" class="section-title">Contact</h2>
-      <p class="section-sub">Have a project or collaboration idea? Send a message below or email me directly.</p>
-      <form onsubmit="return sendEmail(event)">
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.8rem;">
-          <input aria-label="Name" type="text" name="name" placeholder="Name" required>
-          <input aria-label="Email" type="email" name="email" placeholder="Email" required>
-        </div>
-        <input aria-label="Subject" type="text" name="subject" placeholder="Subject" required>
-        <textarea aria-label="Message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-        <button class="btn primary" type="submit">Send</button>
-        <a class="btn" href="mailto:you@example.com">Email Me</a>
-      </form>
+      <p class="section-sub">Let’s connect! You can reach me through the following platforms:</p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; font-size: 16px;">
+        <a href="mailto:wellyoktariana08@gmail.com" target="_blank" style="display:flex; align-items:center; gap:.6rem; text-decoration:none; color:#333;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" width="22" height="22">
+          <span>wellyoktariana08@gmail.com</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/wellyoktariana/" target="_blank" style="display:flex; align-items:center; gap:.6rem; text-decoration:none; color:#333;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="22" height="22">
+          <span>linkedin.com/in/your-profile</span>
+        </a>
+
+        <a href="https://github.com/wellyokt" target="_blank" style="display:flex; align-items:center; gap:.6rem; text-decoration:none; color:#333;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" width="22" height="22">
+          <span>github.com/your-username</span>
+        </a>
+      </div>
     </section>
+
   </main>
   <footer>
     <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
-      <div>© <span id="year"></span> Welly Oktariana. All rights reserved.</div>
-      <div style="display:flex; gap:.6rem;">
-        <a class="icon-btn" href="#" aria-label="GitHub">GH</a>
-        <a class="icon-btn" href="#" aria-label="LinkedIn">in</a>
-        <a class="icon-btn" href="#" aria-label="X/Twitter">X</a>
-      </div>
     </div>
   </footer>
-
-  <script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme (light/dark) with localStorage
-    const root = document.documentElement;
-    const stored = localStorage.getItem('theme');
-    if (stored) root.setAttribute('data-theme', stored);
-    const toggleTheme = () => {
-      const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', now);
-      localStorage.setItem('theme', now);
-    };
-    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-    document.getElementById('themeToggleSm').addEventListener('click', toggleTheme);
-
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobMenu = document.getElementById('mobMenu');
-    menuBtn.addEventListener('click', () => {
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', String(!expanded));
-      mobMenu.hidden = expanded;
-    });
-
-    // Mailto sender
-    function sendEmail(e){
-      e.preventDefault();
-      const f = e.target;
-      const name = encodeURIComponent(f.name.value);
-      const email = encodeURIComponent(f.email.value);
-      const subject = encodeURIComponent(f.subject.value);
-      const body = encodeURIComponent(`Hello, I'm ${name} (${email}).
-
-${f.message.value}`);
-      window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
-      return false;
-    }
-  </script>
 </body>
 </html>
