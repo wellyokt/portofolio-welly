@@ -215,7 +215,7 @@
               <li>Delivered an intelligent assistant capable of producing executive summaries from datasets, highlighting trends, anomalies, and key metrics automatically.</li>
               <li>Enabled users to perform Q&A on both raw data and analysis results, using conversational prompts.</li>
               <li>Integrated dataset storage in SQLite, allowing scalable and persistent data access without reprocessing.</li>
-              <li>tilized LangChain SQL tools to translate user questions into optimized SQL queries, fetch results from the database, and generate natural-language answers.</li>
+              <li>Utilized LangChain SQL tools to translate user questions into optimized SQL queries, fetch results from the database, and generate natural-language answers.</li>
               <li>Combined LLM reasoning with data-driven outputs, ensuring answers are both accurate and easy to understand for non-technical users.</li>
             </ul>
             <p style ="font-weight: bold;">Methods</p>
@@ -278,11 +278,13 @@
             <h3 id="p2-title">POI QA Automation Module</h3>
             <p style ="font-weight: bold;">Objective</p>
             <p>
-              Developed an automated QA module to enhance Point-of-Interest (POI) data accuracy through multi-layer validation, including duplicate detection, location consistency, reviews, common names, and ratings checks </p>
+             Designed and implemented an automated data quality pipeline to validate and enrich POI data, including duplicate detection, geospatial checks, semantic validation (LLM-based), and scoring, significantly reducing manual QA workload.</p>
             <p style ="font-weight: bold;">Key Outcomes</p>
             <ul>
               <li>Minimized manual QA effort by automating processing validation tasks.</li>
               <li>Assigned confidence values to POI entries, allowing data to be filtered without reducing the total number of POIs.</li>
+              <li>Ensured that the automated validation process is highly accurate, reducing false positives/negatives in POI quality checks.</li>
+
             </ul>
             <p style ="font-weight: bold;">Methods</p>
             <p>Scoring, Semantic Checks (LLM-based), Text Matching, Geospatial Analysis</p>
